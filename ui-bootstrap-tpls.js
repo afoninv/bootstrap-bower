@@ -3555,13 +3555,14 @@ angular.module('ui.bootstrap.tooltip', ['ui.bootstrap.position', 'ui.bootstrap.b
 
             function removeTooltip() {
               transitionTimeout = null;
-              if (tooltip) {
-                tooltip.remove();
-                tooltip = null;
-              }
               if (tooltipLinkedScope) {
                 tooltipLinkedScope.$destroy();
                 tooltipLinkedScope = null;
+              }
+              ttScope.$destroy();
+              if (tooltip) {
+                tooltip.remove();
+                tooltip = null;
               }
             }
 
